@@ -60,7 +60,7 @@ def print_animated_chart(numbers):
 
     line = ""
     for color, blocks, label in segments:
-        for _ in range(blocks):
+        for i in range(blocks):
             line += color
             print("\r" + line, end="", flush=True)
             time.sleep(0.1)  # animation speed
@@ -69,7 +69,7 @@ def print_animated_chart(numbers):
 
     labels_line = ""
     pos = 0
-    for _, blocks, label in segments:
+    for i, blocks, label in segments:
         labels_line += " " * (pos - len(labels_line)) + label
         pos += blocks
     print(labels_line)
@@ -81,3 +81,4 @@ if __name__ == "__main__":
     numbers = load_numbers("sequence.txt")
     print_static_chart(numbers)
     print_animated_chart(numbers)
+
